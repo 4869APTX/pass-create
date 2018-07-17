@@ -3,6 +3,17 @@ import string
 import sys
 import random
 import optparse
+import argparse
+
+def banner():
+    print("                      _____")
+    print("                     / ____|")
+    print(" _ __   __ _ ___ ___| |")
+    print("| '_ \ / _` / __/ __| |")
+    print("| |_) | (_| \__ \__ \ |____")
+    print("| .__/ \__,_|___/___/\_____|")
+    print("| |")
+    print("|_|    Powered by MelonRind\n\n")
 
 def passCreate(length,num = True,punctuation = True,upper = True,lower = True):
     num_list = ''.join(string.digits)
@@ -27,14 +38,18 @@ def passCreate(length,num = True,punctuation = True,upper = True,lower = True):
 
 if __name__ == "__main__":
     # print(passCreate(15,num=True,punctuation = ,upper = False,lower = False))
+    banner()
+    parser = argparse.ArgumentParser()
+    # parser.add_argument()
 
-    parser = optparse.OptionParser('usage: passC.py -l <password length> [--] <pathspec>...')
-    parser.add_option('-l','--length',dest='length',type='int',help='password length')
-    parser.add_option('-n','--number',dest='num',type='string',default='yes',help='Does the password require no digits?(yes/no)default yes')
-    parser.add_option('-p','--punctua',dest='punc',type='string',default='yes',help='Does the password require no symbol?(yes/no)default yes')
-    parser.add_option('-u','--upper',dest='upper',type='string',default='yes',help='Does the password require no uppercase?(yes/no)default yes')
-    parser.add_option('-o','--lower',dest='lower',type='string',default='yes',help='Does the password require no lowercase?(yes/no)default yes')
-    (options,args)=parser.parse_args()
+    #
+    # parser = optparse.OptionParser('usage: passC.py -l <password length> [--] <pathspec>...')
+    parser.add_argument('-l','--length',dest='length',type=int,help='password length')
+    parser.add_argument('-n','--number',dest='num',default='yes',help='Does the password require no digits?(yes/no)default yes')
+    parser.add_argument('-p','--punctua',dest='punc',default='yes',help='Does the password require no symbol?(yes/no)default yes')
+    parser.add_argument('-u','--upper',dest='upper',default='yes',help='Does the password require no uppercase?(yes/no)default yes')
+    parser.add_argument('-o','--lower',dest='lower',default='yes',help='Does the password require no lowercase?(yes/no)default yes')
+    options=parser.parse_args()
     num = True
     punc = True
     upper = True
