@@ -1,5 +1,5 @@
 # password-create
-
+```
                       _____
                      / ____|
  _ __   __ _ ___ ___| |
@@ -25,3 +25,5 @@ optional arguments:
   -o LOWER, --lower LOWER
                         Does the password require no lowercase?(yes/no)default
                         yes
+
+```
